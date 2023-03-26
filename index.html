@@ -8,7 +8,7 @@
       src="https://kit.fontawesome.com/67a3e94686.js"
       crossorigin="anonymous"
     ></script>
-    <title>Tidally | Tide Chart & Weather Application</title>
+    <title>Tidally | Tide Chart & Weather</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -18,21 +18,32 @@
         <h2>Get the tides near you.</h2>
       </section>
       <form action="">
-        <input type="text" placeholder="Search a City" autofocus />
+        <input id="search-input" type="text" placeholder="Search a City" autofocus />
         <button>Search</button>
       </form>
     </header>
 
     <main>
-      <h3>Orlando, FL</h3>
-      <h3>0 F</h3>
-      <h4>Partly Cloudy</h4>
-      <h4 class="tide-results"><i class="fa-solid fa-water"></i> High Tide</h4>
+      <section class="current-weather">
+        <h3>Orlando, FL</h3>
+        <h3>0 F</h3>
+        <h4>Partly Cloudy</h4>
+        <h4 class="tide-results">
+          <i class="fa-solid fa-water"></i> High Tide
+        </h4>
+      </section>
       <p><i class="fa-solid fa-lg fa-arrow-up"></i> Next high tide is at:</p>
       <p><i class="fa-solid fa-lg fa-arrow-down"></i> Next low tide is at:</p>
       <p>View tides and weather for the week:</p>
     </main>
 
+    <footer>
+      <p>
+        Tidally &copy;
+        <a href="https://aliaquintero.com/" target="_blank">Alia Quintero</a>
+        2022.
+      </p>
+    </footer>
     <script src="app.js"></script>
   </body>
 </html>

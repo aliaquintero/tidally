@@ -15,9 +15,27 @@ body {
   background: radial-gradient(circle, #22577a 0%, #38a3a5 50%, #57cc99 100%);
 }
 
-header {
+header,
+footer {
   padding: 2em;
   background-color: #122e42be;
+}
+
+footer p {
+  font-size: 0.8em;
+  color: #fff;
+  text-align: center;
+}
+
+footer a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #57cc99;
+  transition: 0.15s;
+}
+
+footer a:hover {
+  color: #fff;
 }
 
 form {
@@ -91,13 +109,23 @@ h4 {
   font-size: 1.3em;
 }
 
+p {
+  margin: 0.75em;
+}
+
 /* ids and classes */
 
 .tide-results {
-  margin: 0.2em;
+  margin: 3em 0em 0em 0em;
   padding: 0.5em 2em;
-  background-color: #e9f4f5;
+  background-color: #d2e6e8;
   border-radius: 15px;
+}
+
+.current-weather {
+  background-color: #e9f4f5;
+  padding: 4em;
+  border-radius: 20px;
 }
 
 /* media queries */
