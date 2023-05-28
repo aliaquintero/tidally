@@ -1,7 +1,8 @@
+"use strict";
+
 const key = "4e1c8a419e1b49e4b92171950232605";
 const userQuery = document.querySelector("#search");
 const buttons = document.querySelectorAll("button");
-// const userGeolocation = document.querySelector("#geolocation");
 const currentWeatherResult = document.querySelector("#result");
 
 async function getWeather() {
@@ -32,16 +33,3 @@ buttons.forEach((button) => {
     userQuery.value = "";
   });
 });
-
-// searchBtn.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   getWeather();
-//   userQuery.value = "";
-// });
-
-// userGeolocation.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   userQuery.value = "auto:ip";
-//   getWeather();
-//   userQuery.value = "";
-// });
