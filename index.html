@@ -15,17 +15,25 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main>
-      <form method="GET">
+    <header>
+      <h1><i class="fa-solid fa-water"></i> Tidally</h1>
+      <form method="GET" id="search-form">
         <input
           type="text"
           name="search"
           id="search"
-          placeholder="Search by City, State, or ZIP"
+          placeholder="Search by city or ZIP"
         />
-        <button id="submit">Search</button>
-        <button class="geolocation">Use current location</button>
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
       </form>
+    </header>
+    <main>
+      <h2 id="current-weather__location"></h2>
+      <h3 id="current-weather__temperature"></h3>
+      <h4 id="current-weather__conditions"></h4>
+      <h4 id="current-tide"></h4>
+      <p id="prev-tide"></p>
+      <p id="next-tide"></p>
       <p id="result"></p>
     </main>
   </body>

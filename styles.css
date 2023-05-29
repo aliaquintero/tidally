@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  color: #000125;
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+}
+
+main {
+  text-align: center;
+  padding: 1em;
+}
+
+header {
+  text-align: center;
+  margin: auto;
+  padding: 2em;
+  color: #fff;
+  background-color: #03045e;
+}
+
+form {
+  margin: auto;
+  padding: 0.5em;
+  background-color: #fff;
+  border-radius: 20px;
+  max-width: 350px;
+  border: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+h1 {
+  margin-bottom: 1em;
+}
+
+form input {
+  padding: 0.25em;
+  font-size: 1em;
+  border: none;
+}
+
+form button {
+  padding: 0.25em;
+  background: none;
+  font-size: 1em;
+  border: none;
+  cursor: pointer;
+}
+
+@media (min-width: 800px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h1,
+  form {
+    margin: 0;
+  }
+}
