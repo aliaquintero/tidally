@@ -34,10 +34,11 @@ function renderWeather(data) {
 window.addEventListener("load", (e) => {
   userQuery.value = "auto:ip";
   getWeather();
-  userQuery.value = "";
+  form.reset();
 });
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   getWeather();
+  form.reset();
 });
