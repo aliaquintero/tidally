@@ -27,9 +27,10 @@ function renderWeather(data) {
 }
 
 function renderTides(data) {
-  const currentTidalData = document.querySelector("#tide-root");
+  const currentTideData = document.querySelector("#tide-root");
   const tideData = data.forecast.forecastday[0].day.tides[0].tide;
   tideData.forEach((tide) => {
+    console.log(tide);
     const time = tide.tide_time;
     const status = tide.tide_type;
     console.log(`The tide is ${status} at ${time}.`);
