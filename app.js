@@ -10,27 +10,33 @@ async function getWeather() {
   );
   const data = await response.json();
   renderWeather(data);
+  renderTides(data);
 }
 
 function renderWeather(data) {
   const date = new Date();
 
-  // current weather forecast
+  // render current weather
   const currentWeatherLocation = document.querySelector("#location");
   const currentWeatherTemp = document.querySelector("#temperature");
   const currentWeatherCondition = document.querySelector("#conditions");
-  let currentWeather = data.forecast.forecastday[0].hour[date.getHours()];
+  const currentWeather = data.forecast.forecastday[0].hour[date.getHours()];
   currentWeatherLocation.innerText = `${data.location.name}`;
   currentWeatherTemp.innerText = `${currentWeather.temp_f} F`;
   currentWeatherCondition.innerText = `${currentWeather.condition.text}`;
-  // current tidal weather
-  // const currentTide = document.querySelector("#current-tide");
-  // const prevTide = document.querySelector("#prev-tide");
-  // const nextTide = document.querySelector("#next-tide");
-  tideData = data.forecast.forecastday[0].day.tides[0].tide;
 }
 
-// geolocation weather on page load
+function renderTides(data) {
+  const currentTidalData = document.querySelector("#tide-root");
+  const tideData = data.forecast.forecastday[0].day.tides[0].tide;
+  tideData.forEach((tide) => {
+    const time = tide.tide_time;
+    const status = tide.tide_type;
+    console.log(`The tide is ${status} at ${time}.`);
+  });
+}
+
+// local weather on page load
 window.addEventListener("load", (e) => {
   userQuery.value = "auto:ip";
   getWeather();
