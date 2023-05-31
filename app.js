@@ -27,13 +27,12 @@ function renderWeather(data) {
 }
 
 function renderTides(data) {
-  const currentTideData = document.querySelector("#tide-root");
+  const currentTime = new Date();
   const tideData = data.forecast.forecastday[0].day.tides[0].tide;
   tideData.forEach((tide) => {
-    console.log(tide);
-    const time = tide.tide_time;
-    const status = tide.tide_type;
-    console.log(`The tide is ${status} at ${time}.`);
+    const tide_type = tide.tide_type;
+    const tide_time = tide.tide_time;
+    const tideTime = new Date(tide_time);
   });
 }
 
