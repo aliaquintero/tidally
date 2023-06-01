@@ -53,6 +53,16 @@ form button {
   cursor: pointer;
 }
 
+#tide-root div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#tide-root i {
+  margin-right: 1em;
+}
+
 @media (min-width: 800px) {
   header {
     display: flex;
