@@ -14,13 +14,13 @@ async function getWeather() {
 }
 
 function renderWeather(data) {
-  const date = new Date();
+  const today = new Date();
 
   // render current weather
   const currentWeatherLocation = document.querySelector("#location");
   const currentWeatherTemp = document.querySelector("#temperature");
   const currentWeatherCondition = document.querySelector("#conditions");
-  const currentWeather = data.forecast.forecastday[0].hour[date.getHours()];
+  const currentWeather = data.forecast.forecastday[0].hour[today.getHours()];
   currentWeatherLocation.innerText = `${data.location.name}`;
   currentWeatherTemp.innerText = `${currentWeather.temp_f} F`;
   currentWeatherCondition.innerText = `${currentWeather.condition.text}`;
@@ -28,45 +28,45 @@ function renderWeather(data) {
 
 function renderTides(data) {
   const currentTime = new Date();
-  const tides = [];
   const tideData = data.forecast.forecastday[0].day.tides[0].tide;
-  tideData.forEach((tide) => {
-    const tide_type = tide.tide_type;
-    const tide_time = tide.tide_time;
-    const tideTime = new Date(tide_time);
-    tides.push({ time: tideTime, type: tide_type });
-  });
+
+  if (!tideData) {
+    console.log("No tide data available");
+    return;
+  }
+
+  const tides = tideData.map((tide) => ({
+    time: new Date(tide.tide_time),
+    type: tide.tide_type,
+  }));
 
   let prevTide = null;
   let nextTide = null;
 
   // find previous and next tides
   for (let i = 0; i < tides.length; i++) {
-    if (tides[i].time < currentTime) {
-      prevTide = tides[i];
+    const tide = tides[i];
+    if (tide.time < currentTime) {
+      prevTide = tide;
     } else {
-      nextTide = tides[i];
+      nextTide = tide;
       break;
     }
   }
-  if (prevTide && nextTide) {
-    if (prevTide.type === "HIGH") {
-      console.log("The tide is falling");
-    } else if (prevTide.type === "LOW") {
-      console.log("The tide is rising");
-    }
 
+  if (prevTide && nextTide) {
+    const tideStatus = prevTide.type === "HIGH" ? "falling" : "rising";
+    console.log(`The tide is ${tideStatus}`);
     console.log("Previous Tide:", prevTide.type);
     console.log("Next Tide:", nextTide.type);
-  } else if (!prevTide) {
+  } else if (!prevTide && nextTide) {
     console.log("No data for previous tide");
     console.log("Next Tide:", nextTide.type);
-  } else if (!nextTide) {
+  } else if (prevTide && !nextTide) {
     console.log("Previous Tide:", prevTide.type);
-
     console.log("No data for next tide");
   } else {
-    console.log("Not sufficient data. Sorry!");
+    console.log("Tide data is insufficient.");
   }
 }
 
