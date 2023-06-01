@@ -54,19 +54,23 @@ function renderTides(data) {
     }
   }
 
+  const tideStatusContainer = document.querySelector("#status");
+  const prevTideContainer = document.querySelector("#prev-tide");
+  const nextTideContainer = document.querySelector("#next-tide");
+
   if (prevTide && nextTide) {
     const tideStatus = prevTide.type === "HIGH" ? "falling" : "rising";
-    console.log(`The tide is ${tideStatus}`);
-    console.log("Previous Tide:", prevTide.type);
-    console.log("Next Tide:", nextTide.type);
+    tideStatusContainer.innerText = `The tide is ${tideStatus}`;
+    prevTideContainer.innerText = `The previous tide was ${prevTide.type}`;
+    nextTideContainer.innerText = `The next tide will be ${nextTide.type}`;
   } else if (!prevTide && nextTide) {
-    console.log("No data for previous tide");
-    console.log("Next Tide:", nextTide.type);
+    prevTideContainer.innerText = `Insufficient data for previous tide.`;
+    nextTideContainer.innerText = `The next tide will be ${nextTide.type}`;
   } else if (prevTide && !nextTide) {
-    console.log("Previous Tide:", prevTide.type);
-    console.log("No data for next tide");
+    prevTideContainer.innerText = `The previous tide was ${prevTide.type}`;
+    nextTideContainer.innerText = `Insufficient data for next tide.`;
   } else {
-    console.log("Tide data is insufficient.");
+    tideStatusContainer.innerText = "Insufficient tide data.";
   }
 }
 
