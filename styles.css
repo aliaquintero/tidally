@@ -41,6 +41,7 @@ h1 {
 
 form input {
   padding: 0.25em;
+  text-align: center;
   font-size: 1em;
   border: none;
 }
