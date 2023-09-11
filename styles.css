@@ -11,9 +11,20 @@ body {
   min-height: 100vh;
 }
 
+aside {
+  font-weight: bold;
+  text-align: end;
+  padding: 1em;
+}
+
 main {
   text-align: center;
   padding: 1em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  max-width: 400px;
+  width: 85%;
+  margin: 5em auto;
 }
 
 header {

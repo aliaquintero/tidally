@@ -17,13 +17,15 @@ function renderWeather(data) {
   const today = new Date();
 
   // render current weather
+  const currentTime = document.querySelector(".current-time");
   const currentWeatherLocation = document.querySelector("#location");
   const currentWeatherTemp = document.querySelector("#temperature");
   const currentWeatherCondition = document.querySelector("#conditions");
   const currentWeather = data.forecast.forecastday[0].hour[today.getHours()];
-  currentWeatherLocation.innerText = `${data.location.name}`;
+  currentWeatherLocation.innerText = `${data.location.name} \n ${data.location.region}`;
   currentWeatherTemp.innerText = `${currentWeather.temp_f} F`;
   currentWeatherCondition.innerText = `${currentWeather.condition.text}`;
+  currentTime.innerText = today.toLocaleDateString('en-us', {weekday: "long", year:"numeric", month: "short", day:"numeric"});
 }
 
 function renderTides(data) {
